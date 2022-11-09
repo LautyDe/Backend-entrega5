@@ -10,14 +10,13 @@ const PORT = 8080;
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 
-app.set("views", "./views");
 app.set("view engine", "ejs");
 
 app.use("/", routers);
-app.use(express.static("public"));
+app.use("static", express.static(__dirname + "public"));
 
 app.get("/", (req, res) => {
-    res.json({ Mensaje: "HOLA" });
+    res.render("formulario");
 });
 
 app.post("/", async (req, res) => {
