@@ -13,7 +13,7 @@ app.use(bp.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 app.use("/", routers);
-app.use("static", express.static(__dirname + "public"));
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
     res.render("formulario");
